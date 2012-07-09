@@ -1,0 +1,69 @@
+\documentclass[
+  fontsize=12pt,
+  paper=a4,
+  DIV=14,
+  BCOR=5mm,
+  pagenumber=footcenter,
+  parskip=half*,
+  german,
+  SN
+]{scrlttr2}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{marvosym}       % phone, mobile and letter icons
+\usepackage{lipsum}
+
+\newkomavar[\Mobilefone]{mobile}
+
+\KOMAoptions{
+  fromalign=left, fromlogo=false, addrfield=true,
+  backaddress=on, subject=titled, subject=left, foldmarks=on,
+  fromphone=on, fromemail=true}
+
+\setkomavar{fromname}{John Smith}
+\setkomafont{fromname}{\bfseries\large}%
+\setkomavar{signature}{John Smith}
+\setkomavar{fromaddress}{Wollengasse 1\\ 8001 Z\"urich}
+\setkomavar{fromphone}{011\,\,222\,\,33\,\,44}
+\setkomavar{mobile}{011\,\,222\,\,33\,\,44}
+\setkomavar{fromemail}{cristi@email.com}
+\setkomavar{place}{Z\"urich}
+
+\setkomavar{date}{\today}
+
+\setkomavar{subject}{}
+
+
+\setkomavar{firsthead}{%
+  \noindent
+  \parbox[b]{\useplength{firstheadwidth}}{%
+    \noindent%
+    \raggedright%
+        {\bfseries\large\usekomavar{fromname}}\\%
+        \rule{\useplength{firstheadwidth}}{1pt}\\%
+        \usekomavar{fromaddress}\\%
+        \Telefon\enskip\usekomavar{fromphone}\\%
+        \Mobilefone\enskip\usekomavar{mobile}\\%
+        \Email\enskip\usekomavar{fromemail}
+  }%
+}%
+
+
+
+\begin{document}
+\begin{letter}{Some company \\ Bahnhofplatz 11 \\ 8910 Affoltern am Albis}
+
+  \opening{To whom it may concern,}
+
+  \vspace{3\parskip}
+
+  \lipsum[1-2]
+
+  \vspace{3\parskip}
+
+  \closing{Best regards,}
+\end{letter}
+\end{document}
